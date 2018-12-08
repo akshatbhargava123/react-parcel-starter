@@ -1,0 +1,23 @@
+@import '../node_modules/antd/dist/antd.css';
+
+.ant-layout-content {
+  padding: 0px 0px;
+}
+
+.hover-trigger {
+  font-size: 1.4em;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  color: black;
+  transition: color .4s;
+}
+
+.hover-trigger :hover {
+  color: #1890ff;
+  transition: color .4s;
+}
+
+/* .ant-menu-horizontal {
+  border-bottom: none;
+} */
