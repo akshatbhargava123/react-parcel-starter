@@ -6,6 +6,7 @@ import { Layout, Breadcrumb  } from 'antd';
 import Header from './components/Header/Header';
 import BigCarousel from './components/BigCarousel/BigCarousel';
 import ProductShowCard from './components/ProductShowCard/ProductShowCard';
+import MultipleItemCarousel from './components/MultipleItemCarousel/MultipleItemCarousel';
 
 import './main.css';
 
@@ -20,6 +21,8 @@ const App = () => {
           <BigCarousel />
 
           <ProductShowCard />
+
+          <MultipleItemCarousel />
 
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Home</Breadcrumb.Item>

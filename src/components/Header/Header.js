@@ -34,17 +34,17 @@ class Header extends Component {
     return (
       <React.Fragment>
         <SideMenu open={this.state.sideMenuOpen} onClose={this.toggleMenu} />
-        <Header style={styles.layoutHeader} hasSider={true}>
+        <Header style={styles.layoutHeader}>
           <Row justify='start' type='flex' align="middle">
-            <Col span={2}>
+            <Col sm={2}>
               <Icon
                 type={'menu-fold'}
                 className="hover-trigger"
                 onClick={this.toggleMenu}
               />
             </Col>
-            <Col span={4}></Col>
-            <Col span={12}>
+            <Col sm={4}></Col>
+            <Col sm={12}>
               <Row justify='space-around' type='flex' gutter={16}>
                 <Menu
                   selectedKeys={['mail']}
