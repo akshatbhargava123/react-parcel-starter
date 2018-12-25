@@ -1,12 +1,9 @@
 import React from "react";
 import { render } from "react-dom";
-
-import { Layout, Breadcrumb  } from 'antd';
+import { Layout } from 'antd';
 
 import Header from './components/Header/Header';
-import BigCarousel from './components/BigCarousel/BigCarousel';
-import ProductShowCard from './components/ProductShowCard/ProductShowCard';
-import MultipleItemCarousel from './components/MultipleItemCarousel/MultipleItemCarousel';
+import Routes from './Routes';
 
 import './main.css';
 
@@ -18,21 +15,12 @@ const App = () => {
       <Layout className="layout">
         <Header />
         <Content>
-          <BigCarousel />
 
-          <ProductShowCard />
+          <Routes />
 
-          <MultipleItemCarousel />
-
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
-          <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>Content</div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©2018 Created by Ant UED
+        <Footer style={{ textAlign: 'center', background: 'white', marginTop: 20 }}>
+          <h3>Vicinity Charter ©2018</h3>
         </Footer>
       </Layout>
     </div>
