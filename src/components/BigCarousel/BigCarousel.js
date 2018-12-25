@@ -25,7 +25,7 @@ class BigCarousel extends Component {
         <div style={{ textAlign: 'left' }}>
           <Button type="default" shape="circle" onClick={() => this.slide(-1)} icon="left" size='large' style={styles.leftBtn} />
         </div>
-        <Carousel ref={r => this.slider = r} draggable={true}>
+        <Carousel ref={r => this.slider = r} draggable={true} adaptiveHeight={true}>
           <div><img src="images/1.jpg" style={{ width: '100%', height: goldenRatioHeight }} /></div>
           <div><img src="images/2.jpg" style={{ width: '100%', height: goldenRatioHeight }} /></div>
           <div><img src="images/3.jpg" style={{ width: '100%', height: goldenRatioHeight }} /></div>

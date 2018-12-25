@@ -9,12 +9,12 @@ class ProductShowCard extends Component {
     return (
       <div>
         <Card
-          style={{ width: 300 }}
+          style={{ width: 300, textAlign: 'center' }}
           cover={<img alt="example" src="https://xeroshoes.com/wp-content/uploads/2017/03/Hana-Black-3-4.jpg" />}
-          actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+          // actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
         >
           <Meta
-            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+            // avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
             title="PUMA X250"
             description="250$"
           />
