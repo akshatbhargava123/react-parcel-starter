@@ -21,12 +21,14 @@
     "react": "^16.7.0",
     "react-dom": "^16.6.3",
     "react-facebook-login": "^4.1.1",
+    "react-google-login": "^4.0.1",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-plugin-import": "^1.11.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "less": "^3.9.0"
   }
 }
