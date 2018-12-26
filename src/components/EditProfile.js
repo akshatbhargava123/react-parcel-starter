@@ -47,7 +47,9 @@ class EditProfile extends React.Component {
   componentDidMount() {
     const token = localStorage.getItem('vc_token');
     if (token) {
-      this.setState({ user: jwt_decode(token) }, () => console.log(this.state.user));
+      this.setState({
+        user: jwt_decode(token)
+      }, () => console.log(this.state.user));
     }
   }
 
@@ -137,22 +139,41 @@ class EditProfile extends React.Component {
         </FormItem>
 
         <FormItem label="Secondary Email" tooltipTitle="You'll receive order details here">
-          <Input name="secondaryEmail" value={this.state.secondaryEmail} onChange={this.handleChange} />
+          <Input
+            name="secondaryEmail"
+            value={this.state.secondaryEmail}
+            onChange={this.handleChange}
+          />
         </FormItem>
 
         <FormItem label="Mobile">
           <Row gutter={40}>
             <Col span={20}>
-              <Input placeholder="Enter your mobile number" value={this.state.user.phone} type="tel" onChange={r => console.log(r)} />
+              <Input
+                placeholder="Enter your mobile number"
+                value={this.state.user.phone}
+                type="tel"
+                onChange={r => console.log(r)}
+              />
             </Col>
             <Col span={4}>
-              <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" style={{ fontSize: 'x-large' }} />
+              <Icon
+                type="check-circle"
+                theme="twoTone"
+                twoToneColor="#52c41a"
+                style={styles.verifiedIconStyle}
+              />
             </Col>
           </Row>
         </FormItem>
 
         <FormItem label="Password">
-          <Button type="primary" ghost block>Change Password</Button>
+          <Button
+            type="primary"
+            ghost
+            block>
+            Change Password
+            </Button>
         </FormItem>
 
         <FormItem label="Social Login">
@@ -163,7 +184,14 @@ class EditProfile extends React.Component {
                 onSuccess={(d) => this.onSocialLink(d, 'google')}
                 onFailure={(d) => console.log(d)}
                 render={renderProps => (
-                  <Button type="danger" onClick={renderProps.onClick} block style={{ background: '#DD4B39', color: 'white' }} icon="google-plus" disabled={this.state.user.accountLinked == 'google'}>
+                  <Button
+                    type="danger"
+                    onClick={renderProps.onClick}
+                    block
+                    style={styles.googleButtonStyle}
+                    icon="google-plus"
+                    disabled={this.state.user.accountLinked == 'google'}
+                  >
                     {this.state.user.accountLinked == 'google' ? 'Account Linked' : 'Google+ Login'}
                   </Button>
                 )}
@@ -176,7 +204,14 @@ class EditProfile extends React.Component {
                 fields="name,email,picture"
                 callback={(d) => this.onSocialLink(d, 'facebook')}
                 render={renderProps => (
-                  <Button type="primary" onClick={renderProps.onClick} block style={styles.facebookButtonStyle} icon="facebook" disabled={this.state.user.accountLinked == 'facebook'}>
+                  <Button
+                    type="primary"
+                    onClick={renderProps.onClick}
+                    block
+                    style={styles.facebookButtonStyle}
+                    icon="facebook"
+                    disabled={this.state.user.accountLinked == 'facebook'}
+                  >
                     {this.state.user.accountLinked == 'facebook' ? 'Account Linked' : 'Facebook Login'}
                   </Button>
                 )}
@@ -184,7 +219,13 @@ class EditProfile extends React.Component {
             </Col>
           </Row>
         </FormItem>
-        <Button type="primary" block onClick={this.updateProfile}>UPDATE PROFILE</Button>
+        <Button
+          type="primary"
+          block
+          onClick={this.updateProfile}
+        >
+          UPDATE PROFILE
+          </Button>
       </Card>
     )
   }
@@ -193,6 +234,7 @@ class EditProfile extends React.Component {
 export default EditProfile;
 
 const styles = {
-  facebookButtonStyle: { background: '#3b5998', color: 'white' }
-
+  facebookButtonStyle: { background: '#3b5998', color: 'white' },
+  verifiedIconStyle: { fontSize: 'x-large' },
+  googleButtonStyle: { background: '#DD4B39', color: 'white' }
 }
