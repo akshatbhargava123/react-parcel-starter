@@ -3,6 +3,7 @@ import { Row, Col, Breadcrumb, Icon } from 'antd';
 
 import './AccountPage.css';
 import AccountSidemenu from '../components/AccountSidemenu';
+import EditProfile from '../components/EditProfile';
 
 export default class AccountPage extends React.Component {
 
@@ -47,7 +48,7 @@ export default class AccountPage extends React.Component {
           <Col span={11}>
 
 
-            <h1>Hello World</h1>
+            <EditProfile />
 
           </Col>
 

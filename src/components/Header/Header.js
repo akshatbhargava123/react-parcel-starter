@@ -127,9 +127,9 @@ class Header extends Component {
               <Button shape="circle" icon={this.state.searchOpen ? 'close' : 'search'} size="large" onClick={this.toggleSearch} />
             </Col>
             <Col sm={1}>
-            <Popover content={<UserToolbarDropdrop />} trigger="click">
-              <Button shape="circle" icon="user" size="large" />
-            </Popover>
+              <Popover content={<UserToolbarDropdrop />} trigger="click" style={{ width: 200 }}>
+                <Button shape="circle" icon="user" size="large" />
+              </Popover>
             </Col>
             <Col sm={1}>
               <Button shape="circle" icon="heart" size="large" />
