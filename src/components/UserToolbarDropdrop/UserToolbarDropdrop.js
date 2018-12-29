@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Input, Button, Anchor, Icon, message } from 'antd';
+import { Input, Button, Icon, message } from 'antd';
 import { API_BASE_URL } from './../../App.constants';
 
-const { Link } = Anchor;
 
 export default class UserToolbarDropdrop extends Component {
 
@@ -45,6 +44,7 @@ export default class UserToolbarDropdrop extends Component {
           } else {
             this.setState({ otpSent: true, sendingOtp: false });
             message.success('OTP sent');
+            console.log(response)
           }
         }).catch(err => {
           message.error('Something went wrong, please try again later')
