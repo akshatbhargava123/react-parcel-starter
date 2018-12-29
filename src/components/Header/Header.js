@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Menu, Icon, Row, Col, Button, Input, Popover } from 'antd';
+import { Layout, Menu, Icon, Row, Col, Button, Input, Popover, Select, DatePicker } from 'antd';
 import './Header.css';
 
 import SideMenu from '../SideMenu/SideMenu';
@@ -8,7 +8,10 @@ import UserToolbarDropdrop from '../UserToolbarDropdrop/UserToolbarDropdrop';
 const styles = {
   layoutHeader: {
     padding: '0px 0px',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    position: 'fixed',
+    zIndex: 1,
+    width: '100%'
   },
   menuHorizontal: {
     borderBottom: 'none'
@@ -27,6 +30,12 @@ class Header extends Component {
 
     this.toggleMenu = this.toggleMenu.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onOk = this.onOk.bind(this);
+
   }
 
   toggleMenu() {
@@ -39,11 +48,34 @@ class Header extends Component {
     });
   }
 
+  handleChange(value) {
+    console.log(`selected ${value}`);
+  }
+
+  handleBlur() {
+    console.log('blur');
+  }
+
+  handleFocus() {
+    console.log('focus');
+  }
+
+  onChange(value, dateString) {
+    console.log('Selected Time: ', value);
+    console.log('Formatted Selected Time: ', dateString);
+  }
+
+  onOk(value) {
+    console.log('onOk: ', value);
+  }
+
   render() {
     const { Header } = Layout;
     const SubMenu = Menu.SubMenu;
     const MenuItemGroup = Menu.ItemGroup;
     const Search = Input.Search;
+    const Option = Select.Option;
+    const { RangePicker } = DatePicker;
 
     return (
       <React.Fragment>
@@ -60,7 +92,7 @@ class Header extends Component {
             <Col sm={4} xs={8}>
               <img src="https://static1.squarespace.com/static/58fe59981b10e39e20b08029/t/598a5487f9a61e39d18cd0c5/favicon.ico" style={{ width: 'inherit' }} />
             </Col>
-            <Col sm={12} xs={16}>
+            <Col sm={8} xs={12}>
               {
                 this.state.searchOpen ?
                   <Input
@@ -123,6 +155,32 @@ class Header extends Component {
                   </Row>
               }
             </Col>
+            <Col sm={2}>
+              <Select
+                showSearch
+                style={{ width: 100, }}
+                placeholder="Location"
+                optionFilterProp="children"
+                onChange={this.handleChange}
+                onFocus={this.handleFocus}
+                onBlur={this.handleBlur}
+                filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+              >
+                <Option value="Pitampura">Pitampura</Option>
+                <Option value="Rohini">Rohini</Option>
+                <Option value="Gurgaon">Gurgaon</Option>
+              </Select>
+            </Col>
+            <Col sm={3}>
+              <RangePicker
+                style={{ width: 150 }}
+                showTime={{ format: 'HH:mm' }}
+                placeholder={["From", "To"]}
+                format="YYYY-MM-DD HH:mm"
+                onChange={this.onChange}
+                onOk={this.onOk}
+              ></RangePicker>
+            </Col>
             <Col sm={1}>
               <Button shape="circle" icon={this.state.searchOpen ? 'close' : 'search'} size="large" onClick={this.toggleSearch} />
             </Col>
@@ -140,7 +198,7 @@ class Header extends Component {
             <Col sm={2}></Col>
           </Row>
         </Header>
-      </React.Fragment>
+      </React.Fragment >
     );
   }
 };
