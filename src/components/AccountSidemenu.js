@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import { Icon, Menu } from 'antd';
 
 class AccountSidemenu extends Component {
+
+  constructor(props) {
+    super(props);
+    this.onSelect = this.onSelect.bind(this);
+  }
+
+  onSelect({ key }) {
+    this.props.optionSelected(key);
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -14,7 +24,7 @@ class AccountSidemenu extends Component {
           </div>
           <div className="user-info">
             <div className="user-avatar">
-              <img src="images/male_placeholder.png" alt="User" />
+              <img src="/images/male_placeholder.png" alt="User" />
             </div>
             <div className="user-data">
               <h4>Akshat Bhargava</h4>
@@ -26,9 +36,9 @@ class AccountSidemenu extends Component {
         <Menu
           onClick={this.handleClick}
           style={{ width: '80%' }}
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
+          defaultSelectedKeys={[this.props.current]}
           mode="inline"
+          onSelect={this.onSelect}
         >
 
           <Menu.Item key="orders">
