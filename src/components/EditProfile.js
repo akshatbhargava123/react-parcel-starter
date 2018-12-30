@@ -7,7 +7,7 @@ import { API_BASE_URL, GOOGLE_APP_ID, FACEBOOK_APP_ID } from '../App.constants';
 
 const FormItem = ({ label, children, tooltipTitle }) => {
   return (
-    <div style={{ margin: '0px 0px 20px 0px' }}>
+    <div style={{ margin: '0px 0px 40px 0px' }}>
       <Row>
         <Col span={4}>
           <b>{label}:</b>
