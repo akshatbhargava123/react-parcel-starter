@@ -1,21 +1,44 @@
 import React from 'react';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { Row, Col, Breadcrumb, Icon } from 'antd';
 
 import './AccountPage.css';
 import AccountSidemenu from '../components/AccountSidemenu';
+import Support from '../components/Support';
 import EditProfile from '../components/EditProfile';
 
-export default class AccountPage extends React.Component {
+class AccountPage extends React.Component {
 
-  onClick = e => {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      currentRouteKey: 'profile'
+    }
+    this.onClick = this.onClick.bind(this);
+    this.changeRoute = this.changeRoute.bind(this);
+  }
+
+  componentDidMount() {
+    const { pathname } = this.props.location;
+    const key = pathname.slice(pathname.lastIndexOf('/') + 1, pathname.length);
+    this.setState({ currentRouteKey: key });
+  }
+
+  onClick(e) {
     e.preventDefault();
+  }
+
+  changeRoute(key) {
+    this.props.history.push(`/account/${key}`);
+    this.setState({ currentRouteKey: key })
   }
 
   render() {
     return (
       <React.Fragment>
 
-        <Row style={{ marginTop: 30 }}>
+        <Row style={{ marginTop: 100 }}>
           <Col span={3}></Col>
           <Col span={4}>
             <h2>My Account</h2>
@@ -31,7 +54,7 @@ export default class AccountPage extends React.Component {
               </Breadcrumb.Item>
               <Breadcrumb.Item>
                 <Icon type="user" />
-                <span>Profile</span>
+                <span>{this.state.currentRouteKey}</span>
               </Breadcrumb.Item>
             </Breadcrumb>
           </Col>
@@ -41,18 +64,20 @@ export default class AccountPage extends React.Component {
           <Col span={2}></Col>
           <Col span={7}>
 
-            <AccountSidemenu />
+            <AccountSidemenu current={this.state.currentRouteKey} optionSelected={this.changeRoute} />
 
           </Col>
 
-          <Col span={11}>
+          <Col span={12}>
 
-
-            <EditProfile />
+            <Switch>
+              <Route path='/account/support' component={Support} />
+              <Route path='/account/profile' exact component={EditProfile} />
+            </Switch>
 
           </Col>
 
-          <Col span={6}></Col>
+          <Col span={5}></Col>
 
 
         </Row>
@@ -62,3 +87,5 @@ export default class AccountPage extends React.Component {
     )
   }
 }
+
+export default withRouter(AccountPage);
