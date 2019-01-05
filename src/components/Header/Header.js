@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Menu, Icon, Row, Col, Button, Input, Popover, Select, DatePicker } from 'antd';
+import { Affix, Layout, Menu, Icon, Row, Col, Button, Input, Popover, Select, DatePicker } from 'antd';
 import './Header.css';
 
 import SideMenu from '../SideMenu/SideMenu';
@@ -9,7 +9,6 @@ const styles = {
   layoutHeader: {
     padding: '0px 0px',
     backgroundColor: 'white',
-    position: 'fixed',
     zIndex: 1,
     width: '100%'
   },
@@ -78,7 +77,7 @@ class Header extends Component {
     const { RangePicker } = DatePicker;
 
     return (
-      <React.Fragment>
+      <Affix>
         <SideMenu open={this.state.sideMenuOpen} onClose={this.toggleMenu} />
         <Header style={styles.layoutHeader}>
           <Row justify='start' type='flex' align="middle">
@@ -198,7 +197,7 @@ class Header extends Component {
             <Col sm={2}></Col>
           </Row>
         </Header>
-      </React.Fragment >
+      </Affix >
     );
   }
 };

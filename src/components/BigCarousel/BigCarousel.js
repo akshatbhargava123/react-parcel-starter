@@ -19,17 +19,22 @@ class BigCarousel extends Component {
   }
 
   render() {
-    const goldenRatioHeight = window.innerHeight * 0.6;
+    const goldenRatioHeight = window.innerHeight * 0.56;
     return (
       <div>
         <div style={{ textAlign: 'left' }}>
           <Button type="default" shape="circle" onClick={() => this.slide(-1)} icon="left" size='large' style={styles.leftBtn} />
         </div>
         <Carousel ref={r => this.slider = r} draggable={true} adaptiveHeight={true}>
-          <div><img src="images/1.jpg" style={{ width: '100%', height: goldenRatioHeight }} /></div>
-          <div><img src="images/2.jpg" style={{ width: '100%', height: goldenRatioHeight }} /></div>
-          <div><img src="images/3.jpg" style={{ width: '100%', height: goldenRatioHeight }} /></div>
-          <div><img src="images/4.jpg" style={{ width: '100%', height: goldenRatioHeight }} /></div>
+          {
+            this.props.images.map((image, i) => {
+              return (
+                <div key={i}>
+                  <img src={image.downloadUrl} style={{ width: '100%', height: goldenRatioHeight }} />
+                </div>
+              )
+            })
+          }
         </Carousel>
         <div style={{ textAlign: 'right', marginRight: 60 }}>
           <Button type="default" shape="circle" onClick={() => this.slide(1)} icon="right" size='large' style={styles.rightBtn} />

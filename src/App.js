@@ -14,7 +14,7 @@ const App = () => {
     <div>
       <Layout className="layout">
         <Header />
-        <Content>
+        <Content style={{ minHeight: 10000 }}>
 
           <Routes />
 
