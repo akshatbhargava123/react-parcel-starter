@@ -1,0 +1,11 @@
+.side-image {
+  width: 80%;
+  height: 80%;
+  margin: 14px;
+}
+
+.side-image:hover {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 30px #9ecaed;
+}
