@@ -19,7 +19,7 @@ class BigCarousel extends Component {
   }
 
   render() {
-    const goldenRatioHeight = window.innerHeight * 0.56;
+    const goldenRatioHeight = window.innerHeight * 0.42;
     return (
       <div>
         <div style={{ textAlign: 'left' }}>
